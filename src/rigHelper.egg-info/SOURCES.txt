@@ -1,0 +1,15 @@
+README.md
+setup.py
+src/rigHelper.egg-info/PKG-INFO
+src/rigHelper.egg-info/SOURCES.txt
+src/rigHelper.egg-info/dependency_links.txt
+src/rigHelper.egg-info/requires.txt
+src/rigHelper.egg-info/top_level.txt
+src/righelper/__init__.py
+src/righelper/righelper.py
+src/righelper/resources/__init__.py
+src/righelper/resources/classes.py
+src/righelper/resources/help_str.py
+src/righelper/resources/logic.py
+src/righelper/resources/ui/__init__.py
+src/righelper/resources/ui/ui_raw.py

@@ -1,0 +1,1 @@
+mayapyUtils@ https://github.com/fsImageries/mayapyUtils/tarball/master#egg=mayapyUtils-0.4.0
