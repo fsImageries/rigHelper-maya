@@ -1,5 +1,4 @@
 from PySide2 import QtWidgets, QtCore, QtGui
-from maya import cmds, mel
 
 from mayapyUtils import mahelper
 from resources import logic, help_str, classes
@@ -17,26 +16,8 @@ SHELF_TOOL = {
 }
 
 
-def _set_shelfBTN():
-    # get top shelf
-    gShelfTopLevel = mel.eval("$tmpVar=$gShelfTopLevel")
-    # get top shelf names
-    shelves = cmds.tabLayout(gShelfTopLevel, query=1, ca=1)
-    # create shelf
-    if SHELF_NAME not in shelves:
-        cmds.shelfLayout(SHELF_NAME, parent=gShelfTopLevel)
-    # skip if already exits
-    if not _check_shelfBTN():
-        # add button
-        cmds.shelfButton(style="iconOnly", parent=SHELF_NAME, **SHELF_TOOL)
-
-
-def _check_shelfBTN():
-    # get existing members
-    names = cmds.shelfLayout(SHELF_NAME, query=True, childArray=True) or []
-    labels = [cmds.shelfButton(n, query=True, label=True) for n in names]
-
-    return SHELF_TOOL.get("label") in labels
+def shelf():
+    mahelper._set_shelfBTN(SHELF_TOOL, SHELF_NAME)
 
 
 class RigHelper_ui(QtWidgets.QMainWindow, ui_raw.Ui_RigHelper):

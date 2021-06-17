@@ -42,8 +42,8 @@ you also have to locate your mayapy executable, [help here](https://knowledge.au
 #### Install in Maya
 - open Maya and the script editor
 - the following command will create a shelf button in the Custom shelf to open the GUI
-- `from righelper.righelper import _set_shelfBTN`
-- `_set_shelfBTN()`
+- `from righelper.righelper import shelf`
+- `shelf()`
 
   
   
