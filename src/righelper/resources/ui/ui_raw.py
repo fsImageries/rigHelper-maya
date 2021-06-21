@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/joshua/Desktop/righelper/ui/ui_raw.ui',
-# licensing of '/Users/joshua/Desktop/righelper/ui/ui_raw.ui' applies.
+# Form implementation generated from reading ui file '/Users/joshua/Desktop/maya_python/righelper/src/righelper/resources/ui/ui_raw.ui',
+# licensing of '/Users/joshua/Desktop/maya_python/righelper/src/righelper/resources/ui/ui_raw.ui' applies.
 #
-# Created: Tue Jun 15 15:03:14 2021
+# Created: Mon Jun 21 14:09:31 2021
 #      by: pyside2-uic  running on PySide2 5.12.5
 #
 # WARNING! All changes made in this file will be lost!
@@ -413,6 +413,37 @@ class Ui_RigHelper(object):
         self.line_6.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_6.setObjectName("line_6")
         self.verticalLayout_5.addWidget(self.line_6)
+        self.horizontalLayout_24 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_24.setObjectName("horizontalLayout_24")
+        self.exportCam = QtWidgets.QPushButton(self.misc_tab)
+        self.exportCam.setMinimumSize(QtCore.QSize(150, 0))
+        self.exportCam.setObjectName("exportCam")
+        self.horizontalLayout_24.addWidget(self.exportCam)
+        self.exportCam_save = QtWidgets.QCheckBox(self.misc_tab)
+        self.exportCam_save.setChecked(True)
+        self.exportCam_save.setObjectName("exportCam_save")
+        self.horizontalLayout_24.addWidget(self.exportCam_save)
+        self.exportCam_locs = QtWidgets.QCheckBox(self.misc_tab)
+        self.exportCam_locs.setChecked(True)
+        self.exportCam_locs.setObjectName("exportCam_locs")
+        self.horizontalLayout_24.addWidget(self.exportCam_locs)
+        self.exportCam_label = QtWidgets.QLabel(self.misc_tab)
+        self.exportCam_label.setObjectName("exportCam_label")
+        self.horizontalLayout_24.addWidget(self.exportCam_label)
+        self.exportCam_mult = QtWidgets.QSpinBox(self.misc_tab)
+        self.exportCam_mult.setObjectName("exportCam_mult")
+        self.horizontalLayout_24.addWidget(self.exportCam_mult)
+        self.exportCam_help = QtWidgets.QPushButton(self.misc_tab)
+        self.exportCam_help.setMaximumSize(QtCore.QSize(24, 24))
+        self.exportCam_help.setText("")
+        self.exportCam_help.setObjectName("exportCam_help")
+        self.horizontalLayout_24.addWidget(self.exportCam_help)
+        self.verticalLayout_5.addLayout(self.horizontalLayout_24)
+        self.line_7 = QtWidgets.QFrame(self.misc_tab)
+        self.line_7.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_7.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_7.setObjectName("line_7")
+        self.verticalLayout_5.addWidget(self.line_7)
         self.horizontalLayout_15 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_15.setObjectName("horizontalLayout_15")
         self.locTrans = QtWidgets.QPushButton(self.misc_tab)
@@ -490,7 +521,7 @@ class Ui_RigHelper(object):
         RigHelper.setStatusBar(self.statusbar)
 
         self.retranslateUi(RigHelper)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(RigHelper)
 
     def retranslateUi(self, RigHelper):
@@ -549,6 +580,10 @@ class Ui_RigHelper(object):
         self.delayAnim.setText(QtWidgets.QApplication.translate("RigHelper", "Delay Animation", None, -1))
         self.poseAutomate.setText(QtWidgets.QApplication.translate("RigHelper", "T-Pose Character", None, -1))
         self.ikAutomate.setText(QtWidgets.QApplication.translate("RigHelper", "Ik Character", None, -1))
+        self.exportCam.setText(QtWidgets.QApplication.translate("RigHelper", "Export Cam", None, -1))
+        self.exportCam_save.setText(QtWidgets.QApplication.translate("RigHelper", "Save", None, -1))
+        self.exportCam_locs.setText(QtWidgets.QApplication.translate("RigHelper", "Locs", None, -1))
+        self.exportCam_label.setText(QtWidgets.QApplication.translate("RigHelper", "Multiply", None, -1))
         self.locTrans.setText(QtWidgets.QApplication.translate("RigHelper", "Create Loc-Transformer", None, -1))
         self.locTrans2.setText(QtWidgets.QApplication.translate("RigHelper", "Remove Loc-Transformer", None, -1))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.misc_tab), QtWidgets.QApplication.translate("RigHelper", "Misc", None, -1))

@@ -63,8 +63,8 @@ Create a spline Ik-Handle with the Ik-SplineHandleTool from the supplied spine j
 It will create 2 cluster paired to the cvs of the driving crv, these clusters will get contrained 
 to the given src_jnts. One for the upper cluster and one for the lower.
 """,
-"ikConstraint":
-"""
+    "ikConstraint":
+    """
 Simple GUI wrapper for constraining objects by the given nodes.
 """,
     "importBtn":
@@ -91,6 +91,15 @@ This function works in 2 modes,
     It will look if there are more than 2 values in a range to determine if it should show the range.
 
 The 'Recurse' checkbox determines if children of the node should also be looked at.
-"""
+""",
+    "exportCam":
+    """
+Export a selected camera to something After Effects can understand.
+We first copy the camera at the start position, without keys or inputs.
+Then we constraint the original camera to the duplicate.
+We bake out the positions and save the selection to new .ma file.
 
+On the way we can multiply the values to scale the camera for AE.
+We can also generate locators on the path of the camera and export those as nulls.
+"""
 }

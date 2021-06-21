@@ -139,6 +139,8 @@ class RigHelper_ui(QtWidgets.QMainWindow, ui_raw.Ui_RigHelper):
         self.locTrans.pressed.connect(self.locTrans_pressed)
         self.locTrans2.pressed.connect(self.locTrans2_pressed)
 
+        self.exportCam.pressed.connect(self.exportCam_pressed)
+
         # Keyframes
         self.unchangingKeys.pressed.connect(self.unchangingKeys_pressed)
         self.unchangingKeyranges.pressed.connect(
@@ -378,6 +380,13 @@ class RigHelper_ui(QtWidgets.QMainWindow, ui_raw.Ui_RigHelper):
 
     def locTrans2_pressed(self):
         self.logic.remove_locTrans()
+
+    def exportCam_pressed(self):
+        save = self.exportCam_save.isChecked()
+        locs = self.exportCam_locs.isChecked()
+        mult = self.exportCam_mult.value()
+
+        self.logic.export_cam(save, locs, mult)
 
     # Keyframes
     def unchangingKeys_pressed(self, ranges=False):

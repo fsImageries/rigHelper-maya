@@ -1,10 +1,6 @@
 import maya.cmds as cmds
 import sys
 
-path = "/Users/joshua/Desktop/mayapyUtils/src"
-if path not in sys.path:
-    sys.path.append(path)
-
 from mayapyUtils.righelper import *
 from mayapyUtils import pyhelper
 
@@ -23,14 +19,15 @@ class RigHelper_logic(object):
     def get_selection(child=False, rec=False):
         sel = cmds.ls(sl=True, l=True)
 
-        if not sel: 
+        if not sel:
             return None
 
         if child:
-            childs = [cmds.listRelatives(s, shapes=not rec, ad=rec, f=True) for s in sel]
+            childs = [cmds.listRelatives(
+                s, shapes=not rec, ad=rec, f=True) for s in sel]
             return sel + pyhelper.flatten(childs)
         return sel
-    
+
     def sel_group(self, group=None):
         if group:
             self.group = group
@@ -55,29 +52,30 @@ class RigHelper_logic(object):
     def automate_ik(self):
         _, tar_grp = self.duplicate_special(["skel_src", "skel_tar"])
 
-        l_arms = [12,14,14,13]
-        r_arms = [15,17,17,16]
+        l_arms = [12, 14, 14, 13]
+        r_arms = [15, 17, 17, 16]
 
-        l_legs = [5,7,7,6]
-        r_legs = [2,4,4,3]
+        l_legs = [5, 7, 7, 6]
+        r_legs = [2, 4, 4, 3]
 
-        spines = [1,9,9,8]
+        spines = [1, 9, 9, 8]
 
-        ik_chains = [l_arms, r_arms, l_legs,r_legs,spines]
+        ik_chains = [l_arms, r_arms, l_legs, r_legs, spines]
         target_jnts = cmds.listRelatives(tar_grp, ad=True, f=True)
 
-        for n,idx in enumerate(ik_chains):
+        for n, idx in enumerate(ik_chains):
             src_ids = idx[:2]
             tar_ids = idx[2:]
             src_jnts = joint_search(target_jnts, src_ids)
             tar_jnts = joint_search(self.all_jnts, tar_ids)
-            
+
             if n == len(ik_chains)-1:
                 self.ik_spline_transfer(src_jnts+tar_jnts)
             else:
                 self.ik_transfer(src_jnts+tar_jnts)
 
-        self.unkey_all(jnts=target_jnts, skips=joint_search(target_jnts, [1]), tr=True)
+        self.unkey_all(jnts=target_jnts, skips=joint_search(
+            target_jnts, [1]), tr=True)
 
         # toConst = [15,12]
         # for const in toConst:
@@ -162,10 +160,11 @@ class RigHelper_logic(object):
             if ro:
                 cmds.setKeyframe(jnt, at="rotate")
 
-    def unkey_all(self,skips=None, tr=None, ro=None, jnts=None):
+    def unkey_all(self, skips=None, tr=None, ro=None, jnts=None):
         jnts = self.all_jnts if not jnts else jnts
         for jnt in jnts:
-            if jnt in skips: continue
+            if jnt in skips:
+                continue
             if tr:
                 cmds.cutKey(jnt, at="translate")
             if ro:
@@ -203,8 +202,11 @@ class RigHelper_logic(object):
             loc = cmds.ls(sl=True)[0]
         except IndexError:
             raise ValueError("Nothing selected.")
-            
+
         remove_loc_transformer(loc)
+
+    def export_cam(self, save, locs, mult):
+        export_ma_cam(save=save, locs=locs, mult=mult)
 
     # Keyframes
     def sel_unchanging_keys(self, rec=False):
@@ -225,7 +227,8 @@ class RigHelper_logic(object):
 
     def remove_unchKeys(self, data, ranges=False):
         if ranges:
-            [[cmds.cutKey(nd, time=r, clear=True) for r in ranges] for nd, ranges in data]
+            [[cmds.cutKey(nd, time=r, clear=True) for r in ranges]
+             for nd, ranges in data]
         else:
-            for nd, _ in data: cmds.delete(nd)
-    
+            for nd, _ in data:
+                cmds.delete(nd)
