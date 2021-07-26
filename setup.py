@@ -39,7 +39,8 @@ here = os.path.abspath(os.path.dirname(__file__))
 long_description = read("README.md")
 packages = ['righelper', 'righelper.resources', 'righelper.resources.ui']
 requires = [
-    "mayapyUtils @ https://github.com/fsImageries/mayapyUtils/tarball/master#egg=mayapyUtils-0.4.0"]
+    "mayapyUtils @ https://github.com/fsImageries/mayapyUtils/tarball/master#egg=mayapyUtils-0.4.0",
+    "pyUtils @ https://github.com/fsImageries/pyUtils/tarball/main#egg=pyUtils-0.1.0"]
 
 attrs = {"name": package,
          "version": find_version("src", package, "__init__.py"),

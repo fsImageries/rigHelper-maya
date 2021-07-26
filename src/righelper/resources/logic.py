@@ -1,8 +1,7 @@
 import maya.cmds as cmds
-import sys
 
 from mayapyUtils.righelper import *
-from mayapyUtils import pyhelper
+from pyUtils import pyhelper
 
 
 class RigHelper_logic(object):
